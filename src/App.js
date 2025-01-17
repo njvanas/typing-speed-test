@@ -22,6 +22,8 @@ const styles = {
         borderRadius: "8px",
         boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
         textAlign: "center",
+        maxWidth: "800px",
+        margin: "20px auto",
     },
     header: {
         marginBottom: "20px",
