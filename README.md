@@ -2,10 +2,6 @@
 
 Welcome to the **Typing Speed Test**! This minimalistic yet professional web app helps you measure your typing speed and accuracy. Built using **React**, this tool is lightweight, responsive, and easy to use.
 
-![Typing Speed Test Screenshot](https://via.placeholder.com/800x400?text=Typing+Speed+Test+Screenshot)
-
-—
-
 ## 🚀 Features
 
 - **Real-Time Typing Speed Calculation**: Measure your typing speed in Words Per Minute (WPM).
@@ -13,8 +9,6 @@ Welcome to the **Typing Speed Test**! This minimalistic yet professional web app
 - **Minimalistic Design**: Clean and user-friendly interface for distraction-free typing.
 - **Responsive Layout**: Works perfectly on desktop, tablet, and mobile devices.
 - **Free & Open Source**: Fully customizable for your own needs.
-
-—
 
 ## 🎯 Usage
 
