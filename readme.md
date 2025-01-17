@@ -16,13 +16,6 @@ Welcome to the **Typing Speed Test**! This minimalistic yet professional web app
 
 —
 
-## 🛠️ Built With
-
-- [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
-- [GitHub Pages](https://pages.github.com/) - For hosting the app.
-
-—
-
 ## 🎯 Usage
 
 ### Online Version
