@@ -1,3 +1,5 @@
+[![Deploy to GitHub Pages](https://github.com/njvanas/typing-speed-test/actions/workflows/deploy.yml/badge.svg)](https://github.com/njvanas/typing-speed-test/actions/workflows/deploy.yml)
+
 # Typing Speed Test
 
 Welcome to the **Typing Speed Test**! This minimalistic yet professional web app helps you measure your typing speed and accuracy. Built using **React**, this tool is lightweight, responsive, and easy to use.
@@ -15,3 +17,4 @@ Welcome to the **Typing Speed Test**! This minimalistic yet professional web app
 ### Online Version
 Visit the live version of the Typing Speed Test here:
 **[Live Demo](https://njvanas.github.io/typing-speed-test/)**
+![This Site is Live](https://img.shields.io/badge/Status-Live-brightgreen?style=for-the-badge)
