@@ -1,0 +1,12 @@
+import React from 'react';
+
+function App() {
+  return (
+    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+      <h1>Typing Speed Test</h1>
+      <p>Start typing to test your speed.</p>
+    </main>
+  );
+}
+
+export default App;
