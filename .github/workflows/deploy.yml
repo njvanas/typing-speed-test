@@ -22,21 +22,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: ./
-
-      - name: Build
-        run: npm run build
-        working-directory: ./
+      - run: npm install
+      - run: npm run build
 
       - name: Deploy
         id: deployment
