@@ -2,10 +2,10 @@ import React from 'react';
 
 function App() {
   return (
-    <div>
+    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
       <h1>Typing Speed Test</h1>
-      <p>Start typing to test your speed...</p>
-    </div>
+      <p>Start typing and we’ll measure your speed.</p>
+    </main>
   );
 }
 
