@@ -1,4 +1,18 @@
-const text = document.getElementById("sample-text").innerText;
+const sentences = [
+  "The quick brown fox jumps over the lazy dog.",
+  "Typing speed is a great way to test your accuracy.",
+  "Practice makes perfect, especially in typing.",
+  "Every developer should know how to type fast.",
+  "Test your limits with this short typing challenge.",
+  "Focus, type, and beat your best score.",
+  "Keep your eyes on the screen and fingers on keys.",
+  "Let the rhythm of typing flow like music.",
+  "Speed matters, but accuracy wins the race.",
+  "Typing tests are both fun and competitive."
+];
+
+let text = "";
+const textDisplay = document.getElementById("sample-text");
 const input = document.getElementById("typing-input");
 const timerDisplay = document.getElementById("timer");
 const wpmDisplay = document.getElementById("wpm");
@@ -7,7 +21,13 @@ const leaderboardList = document.getElementById("leaderboard-list");
 
 let startTime, interval;
 
+function getRandomSentence() {
+  return sentences[Math.floor(Math.random() * sentences.length)];
+}
+
 function startTest() {
+  text = getRandomSentence();
+  textDisplay.innerText = text;
   input.value = "";
   input.disabled = false;
   input.focus();
@@ -35,10 +55,10 @@ function endTest() {
   name = name.trim();
 
   let leaderboard = JSON.parse(localStorage.getItem("typingLeaderboard")) || [];
-  leaderboard = leaderboard.filter(entry => entry.name !== name); // No duplicates
+  leaderboard = leaderboard.filter(entry => entry.name !== name);
   leaderboard.push({ name, wpm });
   leaderboard.sort((a, b) => b.wpm - a.wpm);
-  leaderboard = leaderboard.slice(0, 50); // Max 50
+  leaderboard = leaderboard.slice(0, 50);
 
   localStorage.setItem("typingLeaderboard", JSON.stringify(leaderboard));
   displayLeaderboard();
@@ -51,6 +71,8 @@ function displayLeaderboard() {
     .join("");
 }
 
+input.addEventListener("paste", e => e.preventDefault());
+
 input.addEventListener("input", () => {
   if (input.value === text) {
     endTest();
@@ -58,5 +80,4 @@ input.addEventListener("input", () => {
 });
 
 startBtn.addEventListener("click", startTest);
-
 displayLeaderboard();
