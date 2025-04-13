@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Typing Speed Test</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Speed Test - Dolfie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Typing Speed Test</h1>
+    <p class="subtext">Created by Dolfie</p>
+    <div class="test-area">
+      <p id="sample-text">
+        The quick brown fox jumps over the lazy dog. How fast can you type?
+      </p>
+      <textarea id="typing-input" placeholder="Start typing here..." disabled></textarea>
+      <div class="stats">
+        <button id="start-btn">Start Test</button>
+        <span>Time: <span id="timer">0</span>s</span>
+        <span>WPM: <span id="wpm">0</span></span>
+      </div>
+    </div>
+    <div class="leaderboard">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboard-list"></ul>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
