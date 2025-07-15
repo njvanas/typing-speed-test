@@ -1,3 +1,5 @@
+"use strict";
+
 const sentences = [
   "The quick brown fox jumps over the lazy dog.",
   "Typing speed is a great way to test your accuracy.",
@@ -20,6 +22,10 @@ const startBtn = document.getElementById("start-btn");
 const leaderboardList = document.getElementById("leaderboard-list");
 
 let startTime, interval;
+
+function sanitizeName(name) {
+  return name.replace(/[<>]/g, "").slice(0, 20);
+}
 
 function getRandomSentence() {
   return sentences[Math.floor(Math.random() * sentences.length)];
@@ -52,7 +58,8 @@ function endTest() {
 
   let name = prompt("Enter your name for the leaderboard:");
   if (!name || !name.trim()) return;
-  name = name.trim();
+  name = sanitizeName(name.trim());
+  if (!name) return;
 
   let leaderboard = JSON.parse(localStorage.getItem("typingLeaderboard")) || [];
   leaderboard = leaderboard.filter(entry => entry.name !== name);
@@ -66,9 +73,15 @@ function endTest() {
 
 function displayLeaderboard() {
   const leaderboard = JSON.parse(localStorage.getItem("typingLeaderboard")) || [];
-  leaderboardList.innerHTML = leaderboard
-    .map(entry => `<li><strong>${entry.name}</strong>: ${entry.wpm} WPM</li>`) 
-    .join("");
+  leaderboardList.innerHTML = "";
+  leaderboard.forEach(entry => {
+    const li = document.createElement("li");
+    const strong = document.createElement("strong");
+    strong.textContent = entry.name;
+    li.appendChild(strong);
+    li.appendChild(document.createTextNode(`: ${entry.wpm} WPM`));
+    leaderboardList.appendChild(li);
+  });
 }
 
 input.addEventListener("paste", e => e.preventDefault());
