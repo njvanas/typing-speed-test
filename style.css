@@ -435,9 +435,20 @@ main {
   color: #fff;
 }
 
-.site-footer__icon {
+/* Lucide stroke icons — match portfolio Footer (Mail, Linkedin, Github) */
+.site-footer__social-btn .site-footer__icon {
   display: block;
   flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: inherit;
+  stroke: currentColor;
+  fill: none;
+  pointer-events: none;
+}
+
+.site-footer__social-btn:hover .site-footer__icon {
+  color: #fff;
 }
 
 .site-footer__heading {
