@@ -423,32 +423,31 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   padding: 0.5rem;
   background: #1e293b;
   color: #9ca3af;
+  text-decoration: none;
   border-radius: 0.5rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .site-footer__social-btn:hover {
   background: #2563eb;
-  color: #fff;
 }
 
-/* Lucide stroke icons — match portfolio Footer (Mail, Linkedin, Github) */
-.site-footer__social-btn .site-footer__icon {
+/* External Lucide SVGs (icons/*.svg) — visible strokes; invert to white on hover */
+.site-footer__icon-img {
   display: block;
-  flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  color: inherit;
-  stroke: currentColor;
-  fill: none;
-  pointer-events: none;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
-.site-footer__social-btn:hover .site-footer__icon {
-  color: #fff;
+.site-footer__social-btn:hover .site-footer__icon-img {
+  filter: brightness(0) invert(1);
 }
 
 .site-footer__heading {
