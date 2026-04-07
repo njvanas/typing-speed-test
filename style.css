@@ -1,38 +1,79 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: linear-gradient(to bottom right, #0f172a, #1e3a8a, #0f172a);
-  color: #d1d5db;
-  font-family: 'Inter', system-ui, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding: 0;
-  min-height: 100vh;
-  margin: 0;
+:root {
+  --bg-deep: #0a0e27;
+  --bg-elevated: rgba(30, 41, 59, 0.5);
+  --text-primary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border: rgba(51, 65, 85, 0.5);
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Hero-style band (matches Office / CI/CD: gradient on content, not full viewport wash) */
 .main-wrap {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 2rem;
+  padding: 2rem 1.25rem;
   width: 100%;
+  background: linear-gradient(to bottom right, #0f172a, #1e3a8a, #0f172a);
 }
 
 .container {
   max-width: 800px;
   width: 100%;
-  background: rgba(30, 41, 59, 0.5);
+  background: var(--bg-elevated);
   padding: 2rem;
   border-radius: 8px;
-  border: 1px solid rgba(71, 85, 105, 0.5);
+  border: 1px solid var(--border);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 h1, .subtext, h2 {
@@ -72,12 +113,12 @@ h2 {
   height: 100px;
   background: #0f172a;
   color: #fff;
-  border: 1px solid rgba(71, 85, 105, 0.5);
+  border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 6px;
   font-size: 1rem;
   outline: none;
-  caret-color: #1d4ed8;
+  caret-color: var(--accent-hover);
 }
 
 .stats {
@@ -93,7 +134,7 @@ h2 {
 }
 
 button {
-  background: #2563eb;
+  background: var(--accent);
   color: #ffffff;
   padding: 0.5rem 1rem;
   border: none;
@@ -105,10 +146,9 @@ button {
 }
 
 button:hover {
-  background: #1d4ed8;
+  background: var(--accent-hover);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
-
 
 .leaderboard {
   margin-top: 2rem;
@@ -122,11 +162,11 @@ button:hover {
 
 #leaderboard-list li {
   padding: 0.25rem 0;
-  border-bottom: 1px solid rgba(71, 85, 105, 0.5);
-  color: #d1d5db;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
 }
 
-/* Portfolio-aligned footer (matches njvanas.github.io — slate-900 / slate-800, Inter) */
+/* Footer — same structure & rules as Office-Auto-Install / CI-CD (njvanas.github.io) */
 .site-footer {
   width: 100%;
   margin-top: auto;
@@ -158,7 +198,7 @@ button:hover {
 .site-footer__title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
   margin: 0 0 1rem;
 }
 
@@ -194,7 +234,7 @@ button:hover {
 
 .site-footer__social-btn:hover {
   background: #2563eb;
-  color: #ffffff;
+  color: #fff;
 }
 
 .site-footer__icon {
@@ -206,7 +246,7 @@ button:hover {
   margin: 0 0 1rem;
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
 }
 
 .site-footer__list {
@@ -230,7 +270,7 @@ button:hover {
 }
 
 .site-footer__list a:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
 .site-footer__list--muted li {
