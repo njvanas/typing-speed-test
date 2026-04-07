@@ -272,28 +272,3 @@ button:hover {
   color: #ef4444;
   flex-shrink: 0;
 }
-
-.site-footer__portfolio-note {
-  margin: 1.25rem 0 0;
-  padding-top: 1.25rem;
-  border-top: 1px solid #1e293b;
-  font-size: 0.8125rem;
-  color: #64748b;
-  text-align: center;
-  line-height: 1.5;
-}
-
-.site-footer__portfolio-note a {
-  color: #93c5fd;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.site-footer__portfolio-note a:hover {
-  color: #ffffff;
-}
-
-.site-footer__sep {
-  margin: 0 0.35rem;
-  color: #475569;
-}
