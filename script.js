@@ -94,3 +94,8 @@ input.addEventListener("input", () => {
 
 startBtn.addEventListener("click", startTest);
 displayLeaderboard();
+
+const footerYear = document.getElementById("footer-year");
+if (footerYear) {
+  footerYear.textContent = String(new Date().getFullYear());
+}
