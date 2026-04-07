@@ -21,4 +21,4 @@ A minimal, elegant, and dark-themed Typing Speed Test built with vanilla HTML, C
 
 ---
 
-Made with ❤️ by **Dolfie**
+Made with ❤️ by **NJ van As**

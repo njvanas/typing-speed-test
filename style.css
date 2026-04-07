@@ -1,3 +1,4 @@
+/* Base tokens — aligned with njvanas.github.io (src/index.css + Hero / Header / Footer) */
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +7,17 @@
 
 :root {
   --bg-deep: #0a0e27;
-  --bg-elevated: rgba(30, 41, 59, 0.5);
+  --bg-elevated: rgba(30, 41, 59, 0.55);
+  --bg-panel: rgba(15, 23, 42, 0.65);
   --text-primary: #e2e8f0;
   --text-muted: #94a3b8;
-  --border: rgba(51, 65, 85, 0.5);
+  --text-subtle: #9ca3af;
+  --border: rgba(51, 65, 85, 0.55);
+  --border-strong: #334155;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
+  --blue-soft: #93c5fd;
+  --header-h: 5.5rem;
 }
 
 html {
@@ -19,7 +25,7 @@ html {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   line-height: 1.6;
   color: var(--text-primary);
   background: var(--bg-deep);
@@ -53,72 +59,243 @@ main {
   background: #64748b;
 }
 
-/* Hero-style band (matches Office / CI/CD: gradient on content, not full viewport wash) */
-.main-wrap {
-  flex: 1;
+/* —— Header (portfolio Header.tsx: fixed, transparent → slate/95 on scroll) —— */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header.site-header--solid {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  border-bottom-color: rgba(51, 65, 85, 0.45);
+}
+
+.site-header__nav {
+  width: 100%;
+}
+
+.site-header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem 1.25rem;
-  width: 100%;
-  background: linear-gradient(to bottom right, #0f172a, #1e3a8a, #0f172a);
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
 }
 
-.container {
-  max-width: 800px;
-  width: 100%;
-  background: var(--bg-elevated);
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
 }
 
-h1, .subtext, h2 {
-  text-align: center;
-}
-
-h1 {
-  font-size: 3rem;
+.site-header__name {
+  font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 0.5rem;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
 }
 
-h2 {
-  font-size: 2rem;
+.site-header__name:hover {
+  color: var(--blue-soft);
+}
+
+.site-header__sep {
+  color: #64748b;
   font-weight: 600;
+}
+
+.site-header__page {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-subtle);
+}
+
+.site-header__links {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.site-header__links a {
+  text-decoration: none;
+  color: #d1d5db;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color 0.2s ease;
+}
+
+.site-header__links a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .site-header__inner {
+    padding: 0.875rem 1rem;
+  }
+
+  .site-header__links {
+    gap: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+#test,
+#leaderboard {
+  scroll-margin-top: calc(var(--header-h) + 0.5rem);
+}
+
+/* —— Main: Hero-style band (portfolio Hero.tsx gradients + pattern) —— */
+.main-wrap {
+  position: relative;
+  flex: 1;
+  display: block;
+  width: 100%;
+  padding: calc(var(--header-h) + 2rem) 0 3rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.main-wrap__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    linear-gradient(to right, rgba(37, 99, 235, 0.12), rgba(147, 51, 234, 0.1)),
+    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 75% 70%, rgba(147, 51, 234, 0.12) 0%, transparent 45%);
+}
+
+.content-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero intro — portfolio Hero: h1 scale, blue subtitle, gray lede */
+.hero-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--blue-soft);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+  font-weight: 300;
+  color: var(--blue-soft);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.hero-lede {
+  font-size: 1.125rem;
+  color: #cbd5e1;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) {
+  .hero-lede {
+    font-size: 1.25rem;
+  }
+}
+
+/* App panel — slate glass card (portfolio section cards) */
+.app-panel {
+  max-width: 52rem;
+  margin: 0 auto;
+  background: var(--bg-elevated);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  min-height: min-content;
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  font-weight: 700;
   color: #ffffff;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: -0.02em;
 }
 
-.subtext {
-  font-size: 1.25rem;
-  color: #9ca3af;
-  margin-bottom: 2rem;
+.leaderboard .section-title:first-child {
+  margin-top: 0;
 }
 
 #sample-text {
-  background: rgba(51, 65, 85, 0.5);
+  background: rgba(51, 65, 85, 0.45);
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   margin-bottom: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
 #typing-input {
+  display: block;
   width: 100%;
-  height: 100px;
-  background: #0f172a;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 100px;
+  background: var(--bg-deep);
   color: #fff;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.5;
   outline: none;
   caret-color: var(--accent-hover);
+  resize: both;
 }
 
 .stats {
@@ -126,32 +303,48 @@ h2 {
   justify-content: space-between;
   margin-top: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .stats span {
-  color: #9ca3af;
+  color: var(--text-subtle);
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
-button {
-  background: var(--accent);
+/* Primary CTA — portfolio Hero primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  background: #2563eb;
   color: #ffffff;
-  padding: 0.5rem 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.5rem;
   cursor: pointer;
   font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  transition: background 0.3s, box-shadow 0.3s;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.25;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
-button:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+.btn-primary:hover {
+  background: #1d4ed8;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
 }
 
 .leaderboard {
   margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
 }
 
 #leaderboard-list {
@@ -161,12 +354,17 @@ button:hover {
 }
 
 #leaderboard-list li {
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--border);
   color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
-/* Footer — same structure & rules as Office-Auto-Install / CI-CD (njvanas.github.io) */
+#leaderboard-list li:last-child {
+  border-bottom: none;
+}
+
+/* Footer — Footer.tsx on portfolio (slate-900 / slate-800) */
 .site-footer {
   width: 100%;
   margin-top: auto;

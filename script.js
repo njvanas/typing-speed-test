@@ -1,5 +1,15 @@
 "use strict";
 
+(function initSiteHeader() {
+  const header = document.getElementById("site-header");
+  if (!header) return;
+  function onScroll() {
+    header.classList.toggle("site-header--solid", window.scrollY > 50);
+  }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+
 const sentences = [
   "The quick brown fox jumps over the lazy dog.",
   "Typing speed is a great way to test your accuracy.",
